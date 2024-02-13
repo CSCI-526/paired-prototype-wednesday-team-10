@@ -156,14 +156,17 @@ public class PlayerMovement : MonoBehaviour
         {
             Debug.Log("碰到障碍物/怪物追上玩家");
             Destroy(other.gameObject);
-            QuitGame();
+            //CameraController.GameOver();
+            //QuitGame();
+            GameOver();
         }
 
         //Player reach the end
         if (other.gameObject.CompareTag("Destination"))
         {
             Debug.Log("到达终点，游戏结束！");
-            QuitGame();
+            GameOver();
+            //QuitGame();
         }
 
         // Infinite bullet mode
@@ -225,6 +228,6 @@ public class PlayerMovement : MonoBehaviour
     {
         Debug.Log("Game Over! Restarting game or showing game over screen...");
         // loading GameOver scene
-        SceneManager.LoadScene("GameOverScene");
+        SceneManager.LoadScene("GameOver");
     }
 }
